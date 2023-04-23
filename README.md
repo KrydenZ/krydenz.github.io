@@ -1,6 +1,7 @@
 # krydenz.github.io
  
-我的个人博客 My personal Blog
+我的个人博客    
+My personal Blog
 
 website: http://krydenz.github.io
 
