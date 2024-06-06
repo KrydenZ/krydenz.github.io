@@ -1,6 +1,6 @@
 # krydenz.github.io
  
-My personal Blog   
+My personal blog   
 
 website: http://krydenz.github.io
 
