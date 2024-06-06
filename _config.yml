@@ -4,7 +4,7 @@ title: 追忆逝水年华
 header-img: img/post-bg-desk.jpg
 email: mikezhuchenzheng@gmail.com
 description: "KrydenZ Blog"
-keyword: "KrydenZ, KrydenZ Blog, KrydenZ的博客"
+# keyword: "KrydenZ, KrydenZ Blog, KrydenZ的博客"
 url: "http://krydenz.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/krydenz/krydenz.github.io.git" # you code repository
