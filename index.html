@@ -2,6 +2,35 @@
 layout: page
 description: "𝑰𝒏 𝑺𝒆𝒂𝒓𝒄𝒉 𝒐𝒇 𝑳𝒐𝒔𝒕 𝑻𝒊𝒎𝒆"
 ---
+<style>
+    .pagination {
+        text-align: center;
+        margin: 20px 0;
+    }
+  
+    .pagination a, .pagination span {
+        display: inline-block;
+        padding: 8px 12px;
+        margin: 0 5px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+  
+    .pagination a {
+        background-color: #0073e6;
+        color: white;
+    }
+  
+    .pagination a:hover {
+        background-color: #005bb5;
+    }
+  
+    .pagination .current-page {
+        font-weight: bold;
+        background-color: #005bb5;
+        color: white;
+    }
+  </style>
 
 {% for post in paginator.posts %}
 <div class="post-preview">
@@ -40,3 +69,24 @@ description: "𝑰𝒏 𝑺𝒆𝒂𝒓𝒄𝒉 𝒐𝒇 𝑳𝒐𝒔𝒕 𝑻�
     {% endif %}
 </ul>
 {% endif %}
+
+
+<div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}" class="prev">« 上一页</a>
+    {% endif %}
+  
+    <!-- 生成页码 -->
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+        <span class="current-page">{{ page }}</span>  <!-- 当前页高亮 -->
+      {% else %}
+      <a href="{{ page | relative_url }}">{{ page }}</a>
+      {% endif %}
+    {% endfor %}
+  
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path }}" class="next">下一页 »</a>
+    {% endif %}
+  </div>
+  
