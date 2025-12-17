@@ -879,12 +879,20 @@ img::-moz-selection {
 /* Tags support End*/
 
 .post-container img{
-        display: block;
-        width: 100%;
-        max-width: 900px;
-        height: auto;
-        // margin: top right bottom left — keep asymmetry to match legacy spacing while centering images
-        margin: 1.5em auto 1.6em auto;
+display: block;
+width: 60%;
+max-width: 900px;
+height: auto;
+max-height: 60vh;
+object-fit: contain;
+// margin: top right bottom left — leave more breathing room while centering images
+margin: 1.8em auto 2em auto;
+}
+
+@media only screen and (max-width: 768px) {
+.post-container img{
+width: 100%;
+}
 }
 
 

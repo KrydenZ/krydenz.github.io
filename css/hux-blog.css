@@ -948,11 +948,19 @@ img::-moz-selection {
 /* Make all post images responsive */
 .post-container img {
   display: block;
-  width: 100%;
+  width: 60%;
   max-width: 900px;
   height: auto;
-  /* margin order: top right bottom left; keep slight asymmetry while centering images */
-  margin: 1.5em auto 1.6em auto;
+  max-height: 60vh;
+  object-fit: contain;
+  /* margin order: top right bottom left; leave comfortable space without changing paragraph spacing */
+  margin: 1.8em auto 2em auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .post-container img {
+    width: 100%;
+  }
 }
 /* Navigation toggle states */
 .navbar-default .navbar-toggle:focus,
