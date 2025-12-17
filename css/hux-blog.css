@@ -948,10 +948,8 @@ img::-moz-selection {
 /* Make all post images responsive */
 .post-container img {
   display: block;
-  width: 100%;
-  max-width: 900px;
+  max-width: 100%;
   height: auto;
-  /* margin order: top right bottom left; keep slight asymmetry while centering images */
   margin: 1.5em auto 1.6em auto;
 }
 /* Navigation toggle states */
