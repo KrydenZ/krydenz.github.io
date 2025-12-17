@@ -951,10 +951,8 @@ img::-moz-selection {
   width: 100%;
   max-width: 900px;
   height: auto;
-  max-height: 80vh;
-  object-fit: contain;
-  /* margin order: top right bottom left; give images more breathing room between paragraphs */
-  margin: 2em auto 2.2em auto;
+  /* margin order: top right bottom left; keep slight asymmetry while centering images */
+  margin: 1.5em auto 1.6em auto;
 }
 /* Navigation toggle states */
 .navbar-default .navbar-toggle:focus,
