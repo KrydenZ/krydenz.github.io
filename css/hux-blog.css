@@ -948,19 +948,13 @@ img::-moz-selection {
 /* Make all post images responsive */
 .post-container img {
   display: block;
-  width: 60%;
+  width: 100%;
   max-width: 900px;
   height: auto;
-  max-height: 60vh;
+  max-height: 80vh;
   object-fit: contain;
-  /* margin order: top right bottom left; leave comfortable space without changing paragraph spacing */
-  margin: 1.8em auto 2em auto;
-}
-
-@media only screen and (max-width: 768px) {
-  .post-container img {
-    width: 100%;
-  }
+  /* margin order: top right bottom left; give images more breathing room between paragraphs */
+  margin: 2em auto 2.2em auto;
 }
 /* Navigation toggle states */
 .navbar-default .navbar-toggle:focus,
