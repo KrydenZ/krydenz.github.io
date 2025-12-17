@@ -952,6 +952,32 @@ img::-moz-selection {
   height: auto;
   margin: 1.5em auto 1.6em auto;
 }
+/* Post image sizing helpers */
+.post-container .post-image {
+  display: block;
+  margin: 1.5em auto 1.6em auto;
+}
+.post-container .post-image--wide {
+  width: 100%;
+  max-width: 960px;
+}
+.post-container .post-image--medium {
+  width: 70%;
+  max-width: 820px;
+}
+.post-container .post-image--narrow {
+  width: 55%;
+  max-width: 640px;
+}
+@media only screen and (max-width: 768px) {
+  .post-container .post-image,
+  .post-container .post-image--wide,
+  .post-container .post-image--medium,
+  .post-container .post-image--narrow {
+    width: 100%;
+    max-width: 100%;
+  }
+}
 /* Navigation toggle states */
 .navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-toggle:hover {
