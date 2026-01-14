@@ -3,7 +3,12 @@ layout: page
 description: "𝑰𝒏 𝑺𝒆𝒂𝒓𝒄𝒉 𝒐𝒇 𝑳𝒐𝒔𝒕 𝑻𝒊𝒎𝒆"
 ---
 
-{% for post in paginator.posts %}
+{% assign homepage_posts = paginator.posts | default: site.posts %}
+{% assign has_paginator = false %}
+{% if paginator and paginator.total_pages > 1 %}
+{% assign has_paginator = true %}
+{% endif %}
+{% for post in homepage_posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">
@@ -25,20 +30,85 @@ description: "𝑰𝒏 𝑺𝒆𝒂𝒓𝒄𝒉 𝒐𝒇 𝑳𝒐𝒔𝒕 𝑻�
 <hr>
 {% endfor %}
 
-<!-- Pager -->
-{% if paginator.total_pages > 1 %}
-<ul class="pager">
-    {% if paginator.previous_page %}
-    <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-    </li>
-    {% endif %}
-    {% if paginator.next_page %}
-    <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-    </li>
-    {% endif %}
-</ul>
+<!-- Pagination -->
+{% if has_paginator %}
+<nav class="pagination-nav" aria-label="Post pagination">
+    <ul class="pagination">
+        {% if paginator.previous_page %}
+        <li>
+            <a class="pagination-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" aria-label="Previous page">
+                &laquo;
+            </a>
+        </li>
+        {% else %}
+        <li class="disabled">
+            <span class="pagination-link" aria-hidden="true">&laquo;</span>
+        </li>
+        {% endif %}
+
+        {% assign total_pages = paginator.total_pages %}
+        {% assign current_page = paginator.page %}
+        {% assign start_page = current_page | minus: 2 %}
+        {% assign end_page = current_page | plus: 2 %}
+        {% if start_page < 1 %}
+        {% assign start_page = 1 %}
+        {% endif %}
+        {% if end_page > total_pages %}
+        {% assign end_page = total_pages %}
+        {% endif %}
+
+        {% if start_page > 1 %}
+        <li>
+            <a class="pagination-link" href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">1</a>
+        </li>
+        {% if start_page > 2 %}
+        <li class="disabled">
+            <span class="pagination-link" aria-hidden="true">…</span>
+        </li>
+        {% endif %}
+        {% endif %}
+
+        {% for page in (start_page..end_page) %}
+        {% if page == paginator.page %}
+        <li class="active">
+            <span class="pagination-link">{{ page }}</span>
+        </li>
+        {% elsif page == 1 %}
+        <li>
+            <a class="pagination-link" href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+        </li>
+        {% else %}
+        <li>
+            <a class="pagination-link" href="{{ site.paginate_path | replace: ':num', page | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        {% if end_page < total_pages %}
+        {% assign last_gap = total_pages | minus: 1 %}
+        {% if end_page < last_gap %}
+        <li class="disabled">
+            <span class="pagination-link" aria-hidden="true">…</span>
+        </li>
+        {% endif %}
+        <li>
+            <a class="pagination-link" href="{{ site.paginate_path | replace: ':num', total_pages | prepend: site.baseurl | replace: '//', '/' }}">{{ total_pages }}</a>
+        </li>
+        {% endif %}
+
+        {% if paginator.next_page %}
+        <li>
+            <a class="pagination-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" aria-label="Next page">
+                &raquo;
+            </a>
+        </li>
+        {% else %}
+        <li class="disabled">
+            <span class="pagination-link" aria-hidden="true">&raquo;</span>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
 {% endif %}
 
   

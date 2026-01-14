@@ -800,6 +800,56 @@ form .row:first-child .floating-label-form-group {
   background-color: #404040;
   cursor: not-allowed;
 }
+.pagination-nav {
+  margin-top: 30px;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+.pagination > li {
+  display: inline-flex;
+}
+.pagination-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  padding: 8px 14px;
+  border: 1px solid #d9d9d9;
+  color: #404040;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC",
+    "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei",
+    "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC",
+    "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
+.pagination a.pagination-link:hover,
+.pagination a.pagination-link:focus {
+  background-color: #0085a1;
+  border-color: #0085a1;
+  color: white;
+  text-decoration: none;
+}
+.pagination .active .pagination-link {
+  background-color: #0085a1;
+  border-color: #0085a1;
+  color: white;
+}
+.pagination .disabled .pagination-link {
+  color: #b3b3b3;
+  border-color: #e0e0e0;
+  cursor: not-allowed;
+}
 ::-moz-selection {
   color: white;
   text-shadow: none;
