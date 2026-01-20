@@ -48,6 +48,63 @@
 .sidebar-container .short-about .list-inline > li {
   padding-left: 0px;
 }
+.sidebar-search {
+  margin-bottom: 25px;
+}
+.sidebar-search-input {
+  position: relative;
+}
+.sidebar-search-field {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  padding: 8px 32px 8px 10px;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #404040;
+  font-size: 13px;
+}
+.sidebar-search-field:focus {
+  border-color: #0085a1;
+  outline: none;
+}
+.sidebar-search-clear {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #bfbfbf;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+.sidebar-search-help {
+  font-size: 12px;
+  color: #9a9a9a;
+  margin: 8px 0 10px;
+}
+.sidebar-search-results {
+  list-style: none;
+  padding-left: 0px;
+  margin: 0px;
+}
+.sidebar-search-result {
+  margin-bottom: 10px;
+}
+.sidebar-search-result a {
+  display: block;
+  color: #404040 !important;
+  font-weight: 600;
+}
+.sidebar-search-result a:hover,
+.sidebar-search-result a:active {
+  color: #0085a1 !important;
+}
+.sidebar-search-meta {
+  font-size: 12px;
+  color: #9a9a9a;
+}
 .catalog-container {
   padding: 0px;
 }
