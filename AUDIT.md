@@ -1,11 +1,18 @@
-# Project Audit
+# Project Audit (Internal)
 
-## Bugs Identified
-- **package.json JSON syntax**: Missing comma after the `grunt` devDependency made the file invalid for npm installs. The file also still pointed to the original template repository instead of this site.
+该文件用于记录仓库维护时做过的技术审计与修复结论，主要给维护者参考，不属于博客正文内容。
 
-## Comments/Metadata to Update
-- **Template attributions in HTML**: Inline comments in `_includes/head.html`, `_layouts/page.html`, and `_includes/footer.html` referenced the prior template author ("BY"). These were neutralized to describe behavior instead of ownership.
-- **Project metadata**: `package.json` previously listed the original author's name, homepage, and repository URLs. These values now reflect the current `krydenz.github.io` site to avoid confusion when publishing or filing issues.
+## 目前保留它的理由
+- 作为维护记录，方便后续回顾“改过什么、为什么改”。
+- 避免同类问题反复出现（例如配置、依赖、模板元数据）。
 
-## Notes
-- The `LICENSE` file retains the upstream copyright notice; keep it unchanged unless the licensing model changes.
+## 最近已确认项
+- `package.json` 语法与仓库元数据已修复到当前项目。
+- 模板中遗留的第三方作者指向性注释已清理为中性描述。
+
+## 站点展示策略
+- `AUDIT.md` 是内部文档，不应作为站点页面展示。
+- 已通过 Jekyll `exclude` 配置将其排除出构建产物。
+
+## 可选方案
+如果你后续不想保留这类维护记录，可以直接删除 `AUDIT.md`。
