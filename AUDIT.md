@@ -1,18 +1,18 @@
 # Project Audit (Internal)
 
-该文件用于记录仓库维护时做过的技术审计与修复结论，主要给维护者参考，不属于博客正文内容。
+This file records technical audit findings and maintenance decisions for repository maintainers. It is not intended to be part of the public blog content.
 
-## 目前保留它的理由
-- 作为维护记录，方便后续回顾“改过什么、为什么改”。
-- 避免同类问题反复出现（例如配置、依赖、模板元数据）。
+## Why Keep It
+- Preserve a clear maintenance history (what changed and why).
+- Reduce repeated regressions in config, dependencies, and template metadata.
 
-## 最近已确认项
-- `package.json` 语法与仓库元数据已修复到当前项目。
-- 模板中遗留的第三方作者指向性注释已清理为中性描述。
+## Recently Confirmed
+- `package.json` syntax and repository metadata have been aligned to this project.
+- Legacy template attribution comments have been rewritten to neutral wording.
 
-## 站点展示策略
-- `AUDIT.md` 是内部文档，不应作为站点页面展示。
-- 已通过 Jekyll `exclude` 配置将其排除出构建产物。
+## Site Exposure Policy
+- `AUDIT.md` is an internal document and should not be published as a site page.
+- It is excluded from Jekyll output via the `exclude` setting.
 
-## 可选方案
-如果你后续不想保留这类维护记录，可以直接删除 `AUDIT.md`。
+## Optional Alternative
+If you do not want to keep internal maintenance notes in this repository, you can remove `AUDIT.md`.
