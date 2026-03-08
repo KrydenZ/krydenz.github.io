@@ -1,11 +1,18 @@
-# Project Audit
+# Project Audit (Internal)
 
-## Bugs Identified
-- **package.json JSON syntax**: Missing comma after the `grunt` devDependency made the file invalid for npm installs. The file also still pointed to the original template repository instead of this site.
+This file records technical audit findings and maintenance decisions for repository maintainers. It is not intended to be part of the public blog content.
 
-## Comments/Metadata to Update
-- **Template attributions in HTML**: Inline comments in `_includes/head.html`, `_layouts/page.html`, and `_includes/footer.html` referenced the prior template author ("BY"). These were neutralized to describe behavior instead of ownership.
-- **Project metadata**: `package.json` previously listed the original author's name, homepage, and repository URLs. These values now reflect the current `krydenz.github.io` site to avoid confusion when publishing or filing issues.
+## Why Keep It
+- Preserve a clear maintenance history (what changed and why).
+- Reduce repeated regressions in config, dependencies, and template metadata.
 
-## Notes
-- The `LICENSE` file retains the upstream copyright notice; keep it unchanged unless the licensing model changes.
+## Recently Confirmed
+- `package.json` syntax and repository metadata have been aligned to this project.
+- Legacy template attribution comments have been rewritten to neutral wording.
+
+## Site Exposure Policy
+- `AUDIT.md` is an internal document and should not be published as a site page.
+- It is excluded from Jekyll output via the `exclude` setting.
+
+## Optional Alternative
+If you do not want to keep internal maintenance notes in this repository, you can remove `AUDIT.md`.
