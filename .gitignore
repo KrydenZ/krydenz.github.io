@@ -33,3 +33,5 @@ Temporary Items
 
 # debug file
 _site
+# local JS dependencies
+node_modules/

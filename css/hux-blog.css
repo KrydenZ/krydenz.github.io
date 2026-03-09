@@ -1,3 +1,8 @@
+/*!
+ * krydenz Blog v1.7.0 (https://krydenz.github.io)
+ * Copyright 2026 krydenz
+ */
+
 @media (min-width: 1200px) {
   .post-container,
   .sidebar-container {
@@ -47,63 +52,6 @@
 }
 .sidebar-container .short-about .list-inline > li {
   padding-left: 0px;
-}
-.sidebar-search {
-  margin-bottom: 25px;
-}
-.sidebar-search-input {
-  position: relative;
-}
-.sidebar-search-field {
-  width: 100%;
-  border: 1px solid #e0e0e0;
-  padding: 8px 32px 8px 10px;
-  border-radius: 4px;
-  background: #ffffff;
-  color: #404040;
-  font-size: 13px;
-}
-.sidebar-search-field:focus {
-  border-color: #0085a1;
-  outline: none;
-}
-.sidebar-search-clear {
-  position: absolute;
-  right: 6px;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  background: transparent;
-  color: #bfbfbf;
-  font-size: 18px;
-  line-height: 1;
-  cursor: pointer;
-}
-.sidebar-search-help {
-  font-size: 12px;
-  color: #9a9a9a;
-  margin: 8px 0 10px;
-}
-.sidebar-search-results {
-  list-style: none;
-  padding-left: 0px;
-  margin: 0px;
-}
-.sidebar-search-result {
-  margin-bottom: 10px;
-}
-.sidebar-search-result a {
-  display: block;
-  color: #404040 !important;
-  font-weight: 600;
-}
-.sidebar-search-result a:hover,
-.sidebar-search-result a:active {
-  color: #0085a1 !important;
-}
-.sidebar-search-meta {
-  font-size: 12px;
-  color: #9a9a9a;
 }
 .catalog-container {
   padding: 0px;
@@ -222,7 +170,7 @@ a img:focus {
   cursor: zoom-in;
 }
 article {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 blockquote {
   color: #808080;
@@ -364,9 +312,9 @@ pre code {
 }
 @media only screen and (max-width: 767px) {
   /**
-         * Layout
-         * Since V1.6 we use absolute positioning to prevent to expand container-fluid
-         * which would cover tags. A absolute positioning make a new layer.
+	 * Layout
+	 * Since V1.6 we use absolute positioning to prevent to expand container-fluid
+	 * which would cover tags. A absolute positioning make a new layer.
 	 */
   .navbar-default .navbar-collapse {
     position: absolute;
@@ -379,12 +327,11 @@ pre code {
     width: 170px;
   }
   /**
-         * Animation
-         * Navbar uses material-inspired animation
-         */
+	 * Animation
+	 */
   #huxblog_navbar {
     /**
-                 * Sharable code and 'out' function
+		 * Sharable code and 'out' function
 		 */
     opacity: 0;
     transform: scaleX(0);
@@ -790,10 +737,6 @@ form .row:first-child .floating-label-form-group {
   border-top: 1px solid #eeeeee;
 }
 .btn {
-  /* Hux learn from
-     *     TypeIsBeautiful,
-     *     [This Post](http://zhuanlan.zhihu.com/ibuick/20186806) etc.
-     */
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
   line-height: 1.7;
   text-transform: uppercase;
@@ -875,7 +818,6 @@ img::-moz-selection {
   color: white;
   background: transparent;
 }
-/* Tags support */
 .tags {
   margin-bottom: -5px;
 }
@@ -1002,14 +944,12 @@ img::-moz-selection {
   }
 }
 /* Tags support End*/
-/* Make all post images responsive */
 .post-container img {
   display: block;
   max-width: 100%;
   height: auto;
   margin: 1.5em auto 1.6em auto;
 }
-/* Post image sizing helpers */
 .post-container .post-image {
   display: block;
   margin: 1.5em auto 1.6em auto;
@@ -1035,7 +975,6 @@ img::-moz-selection {
     max-width: 100%;
   }
 }
-/* Navigation toggle states */
 .navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-toggle:hover {
   background-color: inherit;
@@ -1043,7 +982,6 @@ img::-moz-selection {
 .navbar-default .navbar-toggle:active {
   background-color: rgba(255, 255, 255, 0.25);
 }
-/* Navbar button styling */
 .navbar-default .navbar-toggle {
   border-color: transparent;
   padding: 19px 16px;
@@ -1060,7 +998,6 @@ img::-moz-selection {
 .navbar-default .navbar-toggle .icon-bar + .icon-bar {
   margin-top: 3px;
 }
-/* Duoshuo comment styles */
 .comment {
   margin-top: 20px;
 }
