@@ -21,6 +21,15 @@
     );
   };
 
+  const updateClearButtonVisibility = () => {
+    if (!clearButton) {
+      return;
+    }
+    const hasValue = normalize(input.value).length > 0;
+    clearButton.hidden = !hasValue;
+    clearButton.setAttribute("aria-hidden", String(!hasValue));
+  };
+
   const renderResults = (matches, query) => {
     resultsList.innerHTML = "";
 
@@ -60,6 +69,7 @@
   const handleSearch = () => {
     const query = normalize(input.value);
     const terms = query.split(/\s+/).filter(Boolean);
+    updateClearButtonVisibility();
 
     if (terms.length === 0) {
       renderResults([], "");
@@ -75,11 +85,15 @@
   };
 
   input.addEventListener("input", handleSearch);
-  clearButton.addEventListener("click", () => {
-    input.value = "";
-    input.focus();
-    renderResults([], "");
-  });
+  if (clearButton) {
+    clearButton.addEventListener("click", () => {
+      input.value = "";
+      input.focus();
+      updateClearButtonVisibility();
+      renderResults([], "");
+    });
+  }
 
+  updateClearButtonVisibility();
   renderResults([], "");
 })();
