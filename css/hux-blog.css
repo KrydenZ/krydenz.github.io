@@ -1,8 +1,3 @@
-/*!
- * krydenz Blog v1.7.0 (https://krydenz.github.io)
- * Copyright 2026 krydenz
- */
-
 @media (min-width: 1200px) {
   .post-container,
   .sidebar-container {
@@ -1000,7 +995,9 @@ img::-moz-selection {
 /* Tags support End*/
 .post-container img {
   display: block;
-  max-width: 100%;
+  width: auto;
+  width: 85%;
+  max-width: 760px;
   height: auto;
   margin: 1.5em auto 0.4em auto;
 }
@@ -1025,7 +1022,17 @@ img::-moz-selection {
   text-align: center;
   margin-top: 0;
 }
+.post-container p > img + br + em,
+.post-container p > img + em {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  font-style: italic;
+  color: gray;
+  margin-top: 0.2em;
+}
 @media only screen and (max-width: 768px) {
+  .post-container img,
   .post-container .post-image,
   .post-container .post-image--wide,
   .post-container .post-image--medium,
