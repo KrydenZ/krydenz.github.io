@@ -893,14 +893,14 @@ img::-moz-selection {
     display: block;
     max-width: 100%;
     height: auto;
-    margin: 1.5em auto 1.6em auto;
+    margin: 1.5em auto 0.4em auto;
 }
 
 // Post image sizing helpers
 .post-container {
     .post-image {
         display: block;
-        margin: 1.5em auto 1.6em auto;
+        margin: 1.5em auto 0.4em auto;
     }
 
     .post-image--wide {
@@ -916,6 +916,12 @@ img::-moz-selection {
     .post-image--narrow {
         width: 55%;
         max-width: 640px;
+    }
+
+    .caption,
+    figcaption {
+        text-align: center;
+        margin-top: 0;
     }
 }
 
@@ -1058,4 +1064,3 @@ img::-moz-selection {
 .page-fullscreen footer .copyright a:hover{
 	color: #ddd;
 }
-

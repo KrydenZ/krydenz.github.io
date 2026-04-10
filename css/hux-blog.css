@@ -1002,11 +1002,11 @@ img::-moz-selection {
   display: block;
   max-width: 100%;
   height: auto;
-  margin: 1.5em auto 1.6em auto;
+  margin: 1.5em auto 0.4em auto;
 }
 .post-container .post-image {
   display: block;
-  margin: 1.5em auto 1.6em auto;
+  margin: 1.5em auto 0.4em auto;
 }
 .post-container .post-image--wide {
   width: 100%;
@@ -1019,6 +1019,11 @@ img::-moz-selection {
 .post-container .post-image--narrow {
   width: 55%;
   max-width: 640px;
+}
+.post-container .caption,
+.post-container figcaption {
+  text-align: center;
+  margin-top: 0;
 }
 @media only screen and (max-width: 768px) {
   .post-container .post-image,
