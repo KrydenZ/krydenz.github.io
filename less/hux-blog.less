@@ -13,6 +13,16 @@ body {
 	overflow-x : hidden;
 }
 
+html,
+body,
+a,
+button,
+input,
+textarea,
+select {
+	-webkit-tap-highlight-color: transparent;
+}
+
 // -- Typography
 
 p {
@@ -51,9 +61,6 @@ a img {
 	}
 }
 
-article{
-	overflow-x : hidden;
-}
 blockquote {
 	color: @gray;
 	font-style: italic;
@@ -485,6 +492,10 @@ pre code{
 .post-preview {
 	> a {
 		color: @gray-dark;
+		-webkit-tap-highlight-color: transparent;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		user-select: none;
 		&:hover,
 		&:focus {
 			text-decoration: none;
@@ -1047,6 +1058,4 @@ img::-moz-selection {
 .page-fullscreen footer .copyright a:hover{
 	color: #ddd;
 }
-
-
 
