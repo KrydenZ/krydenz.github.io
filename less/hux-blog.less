@@ -891,7 +891,9 @@ img::-moz-selection {
 
 .post-container img{
     display: block;
-    max-width: 100%;
+    width: auto;
+    width: 85%;
+    max-width: 760px;
     height: auto;
     margin: 1.5em auto 0.4em auto;
 }
@@ -923,10 +925,22 @@ img::-moz-selection {
         text-align: center;
         margin-top: 0;
     }
+
+    // Markdown image caption fallback: ![]() + two spaces + *caption*
+    p > img + br + em,
+    p > img + em {
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        font-style: italic;
+        color: gray;
+        margin-top: 0.2em;
+    }
 }
 
 @media only screen and (max-width: 768px) {
     .post-container {
+        img,
         .post-image,
         .post-image--wide,
         .post-image--medium,
