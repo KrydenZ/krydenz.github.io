@@ -29,6 +29,36 @@ This file records technical audit findings and maintenance decisions for reposit
 - `npx grunt default` now succeeds and compiles/updates expected artifacts (`css/hux-blog.css`, `css/hux-blog.min.css`, `js/hux-blog.min.js`).
 - Tooling security upgrades remain a follow-up task (likely requires major-version dependency updates).
 
+## 2026-06 CI/CD and Asset Toolchain Update
+
+### Commands executed
+- `npm ci`
+- `npm run build:assets`
+- `bundle exec jekyll build --strict_front_matter`
+- `npm audit --audit-level=moderate`
+- `git diff --check -- css/hux-blog.css css/hux-blog.min.css js/hux-blog.min.js`
+
+### Maintenance decisions
+1. **Replaced Travis CI with GitHub Actions**
+   - Removed `.travis.yml` and the unused `codecov.yml`.
+   - Added a GitHub Actions Pages workflow that builds assets, builds Jekyll, checks committed generated assets, audits Node dependencies, uploads `_site`, and deploys through GitHub Pages.
+2. **Removed the legacy Grunt asset pipeline**
+   - Removed `Gruntfile.js` and Grunt-related npm dependencies.
+   - Added `scripts/build-assets.js`, which uses `less`, `lightningcss`, and `terser` to generate the same committed asset outputs.
+3. **Resolved npm audit findings**
+   - The Grunt dependency tree was the source of the remaining moderate/high npm audit findings.
+   - The replacement toolchain currently reports `found 0 vulnerabilities`.
+4. **Locked Node dependencies**
+   - Added `package-lock.json` so CI can use `npm ci`.
+5. **Line ending behavior**
+   - Asset generation writes LF output and the workflow checks generated assets for whitespace issues.
+
+### Current status after this run
+- `npm run build:assets` succeeds.
+- `bundle exec jekyll build --strict_front_matter` succeeds.
+- `npm audit --audit-level=moderate` succeeds with zero vulnerabilities.
+- Re-running the asset build is idempotent for committed generated assets.
+
 ## Site Exposure Policy
 - `AUDIT.md` is an internal document and should not be published as a site page.
 - It is excluded from Jekyll output via the `exclude` setting.
