@@ -1151,3 +1151,85 @@ img::-moz-selection {
 .page-fullscreen footer .copyright a:hover {
   color: #ddd;
 }
+.post-banner {
+  position: relative;
+  overflow: hidden;
+  background: #808080;
+  background-image: none !important;
+}
+.post-banner .post-banner-background {
+  position: absolute;
+  z-index: 0;
+  inset: -28px;
+  background-image: var(--post-banner-image);
+  background-position: center;
+  background-size: cover;
+  filter: blur(24px);
+  transform: scale(1.08);
+}
+.post-banner .post-banner-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+}
+.post-banner .post-banner-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 760px;
+  aspect-ratio: 4 / 3;
+  margin: 0 auto;
+  background-image: var(--post-banner-image);
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+.post-banner .header-mask,
+.post-banner .post-banner-shade,
+.post-banner .post-banner-content {
+  position: absolute;
+  inset: 0;
+}
+.post-banner .header-mask {
+  z-index: 1;
+}
+.post-banner .post-banner-shade {
+  z-index: 2;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 35%, rgba(0, 0, 0, 0.68) 100%);
+}
+.post-banner .post-banner-content {
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 16px 16px;
+}
+.post-banner .post-heading {
+  width: 100%;
+  padding: 0;
+}
+.post-banner .post-heading h1 {
+  margin: 10px 0 8px;
+}
+.post-banner .post-heading .subheading {
+  margin: 0 0 8px;
+}
+@media only screen and (min-width: 768px) {
+  .post-banner .post-banner-image {
+    aspect-ratio: 1280 / 670;
+  }
+  .post-banner .post-banner-content {
+    padding: 0 36px 28px;
+  }
+  .post-banner .post-heading h1 {
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
+  .post-banner .post-heading .subheading {
+    font-size: 18px;
+    margin: 0 0 10px;
+  }
+  .post-banner .post-heading .meta {
+    font-size: 16px;
+  }
+}
