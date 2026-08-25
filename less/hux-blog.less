@@ -1078,3 +1078,106 @@ img::-moz-selection {
 .page-fullscreen footer .copyright a:hover{
 	color: #ddd;
 }
+
+// Article Banner
+// Reuse the same source image for a full-width blurred backdrop and a
+// body-width clear image. No desktop/mobile image variants are required.
+.post-banner {
+	position: relative;
+	overflow: hidden;
+	background: @gray;
+	background-image: none !important;
+
+	.post-banner-background {
+		position: absolute;
+		z-index: 0;
+		inset: -28px;
+		background-image: var(--post-banner-image);
+		background-position: center;
+		background-size: cover;
+		filter: blur(24px);
+		transform: scale(1.08);
+	}
+
+	.post-banner-background::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.28);
+	}
+
+	.post-banner-image {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		max-width: 760px;
+		aspect-ratio: 4 / 3;
+		margin: 0 auto;
+		background-image: var(--post-banner-image);
+		background-position: center;
+		background-size: cover;
+		overflow: hidden;
+	}
+
+	.header-mask,
+	.post-banner-shade,
+	.post-banner-content {
+		position: absolute;
+		inset: 0;
+	}
+
+	.header-mask {
+		z-index: 1;
+	}
+
+	.post-banner-shade {
+		z-index: 2;
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 35%, rgba(0, 0, 0, 0.68) 100%);
+	}
+
+	.post-banner-content {
+		z-index: 3;
+		display: flex;
+		align-items: flex-end;
+		padding: 0 16px 16px;
+	}
+
+	.post-heading {
+		width: 100%;
+		padding: 0;
+
+		h1 {
+			margin: 10px 0 8px;
+		}
+
+		.subheading {
+			margin: 0 0 8px;
+		}
+	}
+
+	@media only screen and (min-width: 768px) {
+		.post-banner-image {
+			aspect-ratio: 1280 / 670;
+		}
+
+		.post-banner-content {
+			padding: 0 36px 28px;
+		}
+
+		.post-heading {
+			h1 {
+				font-size: 36px;
+				margin-bottom: 8px;
+			}
+
+			.subheading {
+				font-size: 18px;
+				margin: 0 0 10px;
+			}
+
+			.meta {
+				font-size: 16px;
+			}
+		}
+	}
+}
