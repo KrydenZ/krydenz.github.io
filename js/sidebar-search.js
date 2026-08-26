@@ -55,8 +55,11 @@
 
       const meta = document.createElement("div");
       meta.className = "sidebar-search-meta";
-      const tags = Array.isArray(post.tags) ? post.tags.join(" / ") : "";
-      meta.textContent = [post.year, tags].filter(Boolean).join(" · ");
+      const metaItems = [post.year]
+        .concat(Array.isArray(post.tags) ? post.tags : [])
+        .map((item) => String(item || "").trim())
+        .filter(Boolean);
+      meta.textContent = [...new Set(metaItems)].join(" · ");
 
       listItem.appendChild(link);
       if (meta.textContent) {
