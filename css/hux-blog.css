@@ -1261,3 +1261,19 @@ img::-moz-selection {
     font-size: 16px;
   }
 }
+*:focus:not(:focus-visible) {
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.post-preview > a {
+  display: block;
+}
+@media (hover: none) and (pointer: coarse) {
+  .post-preview > a:focus,
+  .post-preview > a:focus-visible {
+    outline: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+}
