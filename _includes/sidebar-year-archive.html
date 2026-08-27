@@ -4,20 +4,26 @@
     <hr class="hidden-sm hidden-xs">
     <h5 id="sidebar-year-archive-title">ARCHIVE</h5>
     <ul class="sidebar-year-archive-list">
-        {% for year in posts_by_year %}
-        <li>
-            <details class="sidebar-year-archive-group">
-                <summary>{{ year.name }} ({{ year.items | size }})</summary>
-                <ul class="sidebar-year-archive-posts">
-                    {% for post in year.items %}
-                    <li>
-                        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </details>
-        </li>
+        {% for year in posts_by_year limit: 4 %}
+            {% include sidebar-year-archive-group.html year=year %}
         {% endfor %}
     </ul>
+    {% if posts_by_year.size > 4 %}
+        {% assign older_year_count = posts_by_year.size | minus: 4 %}
+        <details class="sidebar-year-archive-more">
+            <summary>
+                <span class="sidebar-year-archive-more-closed">更早年份 ({{ older_year_count }})</span>
+                <span class="sidebar-year-archive-more-open">收起更早年份 ({{ older_year_count }})</span>
+            </summary>
+            <ul class="sidebar-year-archive-list sidebar-year-archive-older-list">
+                {% for year in posts_by_year offset: 4 limit: 4 %}
+                    {% include sidebar-year-archive-group.html year=year %}
+                {% endfor %}
+                <li class="sidebar-year-archive-all-years">
+                    <a href="{{ '/tags/' | prepend: site.baseurl }}">查看全部年份 →</a>
+                </li>
+            </ul>
+        </details>
+    {% endif %}
 </section>
 {% endif %}
