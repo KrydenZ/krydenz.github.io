@@ -1,0 +1,17 @@
+{% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% if posts_by_year.size > 0 %}
+<section class="sidebar-year-archive" aria-labelledby="sidebar-year-archive-title">
+    <hr class="hidden-sm hidden-xs">
+    <h5 id="sidebar-year-archive-title">年度归档</h5>
+    <ul class="sidebar-year-archive-list">
+        {% for year in posts_by_year %}
+        <li>
+            <a href="{{ site.baseurl }}/tags/#{{ year.name }}">
+                <span>{{ year.name }}</span>
+                <span class="sidebar-year-archive-count">{{ year.items | size }} 篇</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
