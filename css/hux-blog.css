@@ -111,7 +111,10 @@
 .sidebar-year-archive-group > summary,
 .sidebar-year-archive-more > summary {
   position: relative;
-  padding: 3px 2px 3px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 2px 3px 5px;
   color: #bfbfbf;
   font-size: inherit;
   line-height: 1.7;
@@ -124,14 +127,15 @@
 }
 .sidebar-year-archive-group > summary::before,
 .sidebar-year-archive-more > summary::before {
-  content: "›";
-  position: absolute;
-  left: 3px;
-  top: 3px;
-  color: #bfbfbf;
-  font-size: 18px;
-  line-height: 1.35;
+  content: "";
+  flex: 0 0 auto;
+  width: 6px;
+  height: 6px;
+  box-sizing: border-box;
+  border-right: 1px solid #bfbfbf;
+  border-bottom: 1px solid #bfbfbf;
   transform-origin: center;
+  transform: rotate(-45deg);
   transition: transform 0.15s ease;
 }
 .sidebar-year-archive-group > summary:hover,
@@ -148,7 +152,7 @@
 }
 .sidebar-year-archive-group[open] > summary::before,
 .sidebar-year-archive-more[open] > summary::before {
-  transform: rotate(90deg);
+  transform: rotate(45deg);
 }
 .sidebar-year-archive-posts {
   list-style: none;
@@ -195,8 +199,11 @@
 }
 .sidebar-year-archive-more > summary::before {
   content: "+";
-  top: 4px;
+  width: 10px;
+  height: auto;
+  border: 0;
   font-size: 15px;
+  line-height: 1;
   transform: none;
 }
 .sidebar-year-archive-more[open] > summary::before {
