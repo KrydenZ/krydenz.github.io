@@ -2,16 +2,28 @@
 {% if posts_by_year.size > 0 %}
 <section class="sidebar-year-archive" aria-labelledby="sidebar-year-archive-title">
     <hr class="hidden-sm hidden-xs">
-    <h5 id="sidebar-year-archive-title">年度归档</h5>
+    <h5 id="sidebar-year-archive-title">ARCHIVE</h5>
     <ul class="sidebar-year-archive-list">
-        {% for year in posts_by_year %}
-        <li>
-            <a href="{{ site.baseurl }}/tags/#{{ year.name }}">
-                <span>{{ year.name }}</span>
-                <span class="sidebar-year-archive-count">{{ year.items | size }} 篇</span>
-            </a>
-        </li>
+        {% for year in posts_by_year limit: 4 %}
+            {% include sidebar-year-archive-group.html year=year %}
         {% endfor %}
     </ul>
+    {% if posts_by_year.size > 4 %}
+        {% assign older_year_count = posts_by_year.size | minus: 4 %}
+        <details class="sidebar-year-archive-more">
+            <summary>
+                <span class="sidebar-year-archive-more-closed">更早年份 ({{ older_year_count }})</span>
+                <span class="sidebar-year-archive-more-open">收起更早年份 ({{ older_year_count }})</span>
+            </summary>
+            <ul class="sidebar-year-archive-list sidebar-year-archive-older-list">
+                {% for year in posts_by_year offset: 4 limit: 4 %}
+                    {% include sidebar-year-archive-group.html year=year %}
+                {% endfor %}
+                <li class="sidebar-year-archive-all-years">
+                    <a href="{{ '/tags/' | prepend: site.baseurl }}">查看全部年份 →</a>
+                </li>
+            </ul>
+        </details>
+    {% endif %}
 </section>
 {% endif %}
