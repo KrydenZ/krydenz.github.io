@@ -1181,3 +1181,28 @@ img::-moz-selection {
 		}
 	}
 }
+
+// Chromium focus compatibility
+// Hide pointer/mouse focus artifacts while preserving keyboard focus-visible.
+*:focus:not(:focus-visible) {
+	outline: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+// The homepage link contains block-level title, subtitle, and preview nodes.
+// Keeping the link block-level prevents fragmented focus outlines.
+.post-preview > a {
+	display: block;
+}
+
+// Some Chromium/Android versions may expose touch focus as focus-visible.
+// Limit the stronger reset to the affected article link on coarse pointers.
+@media (hover: none) and (pointer: coarse) {
+	.post-preview > a:focus,
+	.post-preview > a:focus-visible {
+		outline: none !important;
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important;
+	}
+}
