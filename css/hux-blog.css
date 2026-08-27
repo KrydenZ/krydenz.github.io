@@ -96,6 +96,34 @@
 .sidebar-search-clear[hidden] {
   display: none;
 }
+.sidebar-year-archive-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px dotted #d9d9d9;
+}
+.sidebar-year-archive-list li {
+  border-bottom: 1px dotted #d9d9d9;
+}
+.sidebar-year-archive-list a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 2px;
+  color: #404040 !important;
+  text-decoration: none;
+}
+.sidebar-year-archive-list a:hover,
+.sidebar-year-archive-list a:focus {
+  color: #0085A1 !important;
+  text-decoration: none;
+}
+.sidebar-year-archive-count {
+  flex: 0 0 auto;
+  color: #bfbfbf;
+  font-size: 12px;
+}
 .catalog-container {
   padding: 0px;
 }
