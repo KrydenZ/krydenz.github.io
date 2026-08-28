@@ -1,4 +1,4 @@
-{% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" | sort: "name" | reverse %}
 {% if posts_by_year.size > 0 %}
 <section class="sidebar-year-archive" aria-labelledby="sidebar-year-archive-title">
     <hr class="hidden-sm hidden-xs">
