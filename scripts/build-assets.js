@@ -19,7 +19,7 @@ const files = {
 const banner = [
     '/*!',
     ` * ${pkg.title} v${pkg.version} (${pkg.homepage})`,
-    ` * Copyright ${new Date().getFullYear()} ${pkg.author}`,
+    ` * Copyright ${pkg.author}`,
     ' */',
     '',
 ].join('\n');
