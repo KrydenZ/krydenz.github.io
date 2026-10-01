@@ -14,14 +14,18 @@
         "npm": ">=9"
     },
     "devDependencies": {
+        "image-size": "^2.0.4",
         "less": "4.9.0",
         "lightningcss": "1.32.0",
+        "parse5": "^7.3.0",
         "terser": "5.48.0"
     },
     "scripts": {
         "build:assets": "node scripts/build-assets.js",
-        "build:site": "bundle exec jekyll build",
+        "postprocess:images": "node scripts/postprocess-images.mjs",
+        "build:site": "bundle exec jekyll build --strict_front_matter && npm run postprocess:images",
         "build": "npm run build:assets && npm run build:site",
+        "test": "node --test scripts/postprocess-images.test.mjs",
         "serve": "bundle exec jekyll serve --watch",
         "preview": "python -m http.server 8020 --directory _site",
         "preview:python3": "python3 -m http.server 8020 --directory _site",
