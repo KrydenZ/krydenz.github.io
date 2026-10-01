@@ -33,17 +33,17 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
-      - name: Build assets
-        run: npm run build:assets
-
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
           bundler-cache: true
 
+      - name: Test image postprocessor
+        run: npm test
+
       - name: Build site
-        run: bundle exec jekyll build --strict_front_matter
+        run: npm run build
         env:
           JEKYLL_ENV: production
 
